@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+html {
+  width: 100%;
+  height: auto;
+}
+#row1 {
+  /* background-color: #c5c6c6; */
+}
+body {
+  font-family: "Roboto Mono", monospace !important ;
+  background-color: #ebecec;
+}
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+.techInterests > li {
+  display: inline-block;
+  text-align: center;
+}
+
+.typing-animate {
+  overflow: hidden;
+  letter-spacing: 2px;
+  animation: typing 3s steps(8, end), blink 0.75s step-end infinite;
+  white-space: nowrap;
+  border-right: 4px solid black;
+  box-sizing: border-box;
+}
+a {
+  color: #0060b6;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #00a0c6;
+  text-decoration: none;
+  cursor: pointer;
+}
+.type {
+  display: inline-block;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+}
+@keyframes typing {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}
