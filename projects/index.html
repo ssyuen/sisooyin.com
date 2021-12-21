@@ -8,6 +8,7 @@
       rel="stylesheet"
       href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="./projects.css"/>
     <title>SISOOYIN</title>
   </head>
   <body>
@@ -42,9 +43,9 @@
     </nav>
     <div class="">
       <div class="row no-gutters">
-        <div id="main" class="d-flex justify-content-center">
+        <div id="main" class="table-responsive-sm d-flex position-absolute top-50 start-50 translate-middle justify-content-center">
           <div
-            class="spinner-border"
+            class="spinner-border "
             style="width: 3rem; height: 3rem"
             role="status"
           >
@@ -55,25 +56,22 @@
       <div class="row no-gutters">
         <div></div>
       </div>
-      
-      
     </div>
-    <footer class="container fixed-bottom">
+    <footer class="container">
       <p class="float-end">
-        <a id="scroller" onclick="scrollSmoothTo('top')">Back to top</a>
+        Get in touch:
+        <a href="mailto:samuel.s.yuen@gmail.com">samuel.s.yuen@gmail.com</a>
       </p>
       <p>
         &copy; 2021-2022 SISOOYIN &middot;
         <a href="t">Privacy</a> &middot; <a href="#">Terms</a>
       </p>
     </footer>
-    <script>
-      function scrollSmoothTo(elementId) {
-  var element = document.getElementById(elementId);
-  element.scrollIntoView({ block: 'start',  behavior: 'smooth' });
-}
-    </script>
+
     <script type="module" src="/projects/projects.js"></script>
-    <script type="module" src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      type="module"
+      src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+    ></script>
   </body>
 </html>

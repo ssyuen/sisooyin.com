@@ -18,7 +18,6 @@ const repoRequest = await fetch('https://us-central1-sisooyin.cloudfunctions.net
 // const repoRequest = await fetch('http://localhost:5001/sisooyin/us-central1/app/api/repos')
 
 const repoInformation = await repoRequest.json();
-console.log(repoInformation)
 let counter = 1;
 for (const repo of repoInformation.data) {
   if (repo.topics.includes('sisooyin') || repo.name === 'meet') {
@@ -37,4 +36,12 @@ for (const repo of repoInformation.data) {
 
 tableHtml += `</tbody>
 </table>`
+
+// REMOVES CONTENT CENTERING IN MIDDLE OF PAGE
+document.querySelector('#main').classList.remove("position-absolute")
+document.querySelector('#main').classList.remove("top-50")
+document.querySelector('#main').classList.remove("start-50")
+document.querySelector('#main').classList.remove("translate-middle")
+
+// ADDS TABLE TO DOCUMENT
 document.querySelector('#main').innerHTML = tableHtml;
