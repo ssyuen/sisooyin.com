@@ -9,12 +9,12 @@ import './style.css'
 //     element.scrollIntoView({ block: "start", behavior: "smooth" });
 // }
 // document.querySelector('#scroller').onclick = scrollSmoothTo;
-function getCurrentDate() {
-    const datesToChange = document.getElementsByClassName("date-reference");
+// function getCurrentDate() {
+//     const datesToChange = document.getElementsByClassName("date-reference");
 
-    for (let element of datesToChange) {
-        element.innerHTML = new Date().toLocaleDateString();
-    }
-    console.log(new Date().toLocaleDateString());
-}
-getCurrentDate();
+//     for (let element of datesToChange) {
+//         element.innerHTML = new Date().toLocaleDateString();
+//     }
+//     console.log(new Date().toLocaleDateString());
+// }
+// getCurrentDate();

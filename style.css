@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 html {
   width: 100%;
+  overflow-x: hidden;
   height: auto;
 }
 #row1 {
@@ -34,7 +35,7 @@ body {
   letter-spacing: 2px;
   animation: typing 3s steps(8, end), blink 0.75s step-end infinite;
   white-space: nowrap;
-  border-right: 4px solid black;
+  border-right: 4px solid white;
   box-sizing: border-box;
 }
 a {
@@ -70,7 +71,7 @@ footer {
     border-color: transparent;
   }
   50% {
-    border-color: black;
+    border-color: white;
   }
 }
 
