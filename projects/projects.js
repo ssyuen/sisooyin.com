@@ -13,25 +13,25 @@ let tableHtml = `<table class="table table-striped table-responsive">
 <tbody id="repoData">
 `
 
-console.log('here')
 // GETTING PERSONAL REPOS
-const repoRequest = await fetch('http://localhost:3001/api/repos')
+const repoRequest = await fetch('https://us-central1-sisooyin.cloudfunctions.net/app/api/repos')
+// const repoRequest = await fetch('http://localhost:5001/sisooyin/us-central1/app/api/repos')
 
 const repoInformation = await repoRequest.json();
 console.log(repoInformation)
 let counter = 1;
 for (const repo of repoInformation.data) {
-    if (repo.topics.includes('sisooyin') || repo.name === 'meet') {
+  if (repo.topics.includes('sisooyin') || repo.name === 'meet') {
 
-        tableHtml += `<tr>
+    tableHtml += `<tr>
         <th scope="row">${counter}</th>
         <td><a href=${repo.html_url}>${repo.name}<a/></td>
         <td>${repo.description}</td>
         <td>${repo.language}</td>
         <td>${new Date(repo.updated_at).toLocaleDateString()}</td>
       </tr>`
-        counter++;
-    }
+    counter++;
+  }
 }
 
 
