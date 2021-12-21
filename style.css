@@ -5,6 +5,12 @@ html {
 }
 #row1 {
   /* background-color: #c5c6c6; */
+  color: white;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyOo2jDFyv-mNfjECfN5X6qRHSLuc_6WmJSQ&usqp=CAU");
+}
+#row1 button a {
+  color: white;
+  text-decoration: none;
 }
 body {
   font-family: "Roboto Mono", monospace !important ;
@@ -66,4 +72,11 @@ footer {
   50% {
     border-color: black;
   }
+}
+
+.info-card {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 1rem;
+  padding: 2px 16px;
 }

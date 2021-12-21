@@ -16,7 +16,10 @@
     <title>SISOOYIN</title>
   </head>
   <body>
-    <nav id="top" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <nav
+      id="top"
+      class="navbar navbar-expand-lg navbar-light bg-light sticky-top"
+    >
       <div class="container-fluid">
         <a class="navbar-brand" href="/">SISOOYIN</a>
         <button
@@ -45,38 +48,39 @@
         </div>
       </div>
     </nav>
-    <div class="container">
-      <div id="row1" class="row">
-        <div class="px-4 py-5 my-5 text-center">
-          <div class="type">
-            <h1 class="display-5 fw-bold typing-animate">SISOOYIN</h1>
-          </div>
+    <div id="row1" class="row ">
+      <div class="px-4 py-5 my-5 text-center">
+        <div class="type">
+          <h1 class="display-5 fw-bold typing-animate">SISOOYIN</h1>
+        </div>
 
-          <div class="col-lg-6 mx-auto">
-            <p class="lead mb-4">Software Engineer | To Be Entreprenuer</p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-              <button
-                type="button"
-                class="btn btn-outline-primary btn-lg px-4 gap-3"
-              >
-                <a href="/projects/">Projects</a>
-              </button>
-              <button type="button" class="btn btn-outline-info btn-lg px-4">
-                <a href="/work/">Work</a>
-              </button>
-            </div>
+        <div class="col-lg-6 mx-auto">
+          <p class="lead mb-4">Software Engineer | To Be Entreprenuer</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button
+              type="button"
+              class="btn btn-outline-light btn-lg px-4 gap-3"
+            >
+              <a href="/projects/">Projects</a>
+            </button>
+            <button type="button" class="btn btn-outline-light btn-lg px-4">
+              <a href="/work/">Work</a>
+            </button>
           </div>
         </div>
       </div>
+    </div>
+    <div class="container g-0">
+      
 
       <div class="row mt-3">
         <div class="col">
-          <div class="card mb-3 shadow" style="max-width: 540px">
+          <div class="card mb-3 shadow">
             <div class="row g-0">
               <div class="col-md-4">
                 <img
                   src="./profpic2resize.jpg"
-                  class="img-fluid rounded-start"
+                  class="card-img img-fluid rounded-start"
                   alt="A picture of Sam Yuen"
                 />
               </div>
@@ -96,29 +100,24 @@
           </div>
         </div>
         <div class="col">
-          <h3>What is sisooyin?</h3>
-          <h4 class="text-muted">
-            On many platforms, I just use my initials + my last name (ssyuen),
-            so phonetically it comes out to say it like this!
-          </h4>
-
-          <h3>What do I hope to do with this site?</h3>
-          <h4 class="text-muted">
-            Mainly, just to have a personal branding for myself. I also hope to
-            include cool projects that I hope to work on in the
-            <a href="/projects/">Projects</a> tab above!
-          </h4>
+          <div class="info-card">
+            <h3>What is sisooyin?</h3>
+            <h4 class="text-muted">
+              On many platforms, I just use my initials + my last name (ssyuen),
+              so phonetically it comes out to say it like this!
+            </h4>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <div>
+          <div class="info-card">
             <h2>Tech Interests</h2>
-            <div class="list-group">
+            <div class="list-group mb-3">
               <a href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1">Front-end Focused</h5>
-                  <small>12/16/2021</small>
+                  <small class="date-reference"></small>
                 </div>
                 <p class="mb-1">Languages/Frameworks</p>
                 <ul class="techInterests">
@@ -155,7 +154,7 @@
               <a href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1">Back-end Focused</h5>
-                  <small class="text-muted">12/16/2021</small>
+                  <small class="text-muted date-reference"></small>
                 </div>
                 <p class="mb-1">Languages/Frameworks/Databases/Cloud</p>
                 <ul class="techInterests">
@@ -207,7 +206,7 @@
               <a href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                   <h5 class="mb-1">Interested in Learning</h5>
-                  <small class="text-muted">12/16/2021</small>
+                  <small class="text-muted date-reference"></small>
                 </div>
                 <p class="mb-1">
                   Technology that I want to make use of for 2022!
@@ -223,6 +222,13 @@
                   </li>
                   <li>
                     <img
+                      src="https://img.icons8.com/color/48/000000/golang.png"
+                      alt="Go icon"
+                    />
+                    <p class="text-muted">Go</p>
+                  </li>
+                  <li>
+                    <img
                       src="https://img.icons8.com/color/48/000000/react-native.png"
                       alt="React Native icon"
                     />
@@ -234,6 +240,14 @@
           </div>
         </div>
         <div class="col">
+          <div class="info-card">
+            <h3>What do I hope to do with this site?</h3>
+            <h4 class="text-muted">
+              Mainly, just to have a personal branding for myself. I also hope
+              to include cool projects that I hope to work on in the
+              <a href="/projects/">Projects</a> tab above!
+            </h4>
+          </div>
           <img src="SISOOYIN.svg" alt="SISOOYIN logo" />
         </div>
       </div>
@@ -336,11 +350,11 @@
     </div>
 
     <script type="module" src="/main.js"></script>
-    <script>
+    <script defer>
       function scrollSmoothTo(elementId) {
-  var element = document.getElementById(elementId);
-  element.scrollIntoView({ block: 'start',  behavior: 'smooth' });
-}
+        var element = document.getElementById(elementId);
+        element.scrollIntoView({ block: "start", behavior: "smooth" });
+      }
     </script>
     <script
       type="module"
