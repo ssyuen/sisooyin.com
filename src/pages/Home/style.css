@@ -1,3 +1,10 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* overflow: hidden; Prevent scrolling */
+}
+
 .home {
     display: flex;
     flex-direction: column;
@@ -5,6 +12,14 @@
     align-items: center;
     height: 100vh; /* Full viewport height */
     text-align: center; /* Center text */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.fName {
+    margin-bottom: 0;
+}
+.subtitle {
+    margin-top: 0px;
 }
 
 .social-icons {

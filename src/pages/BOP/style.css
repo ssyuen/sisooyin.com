@@ -1,5 +1,3 @@
-
-
 .bop-container {
     display: flex;
     flex: 1; /* Ensure it takes up all available space */
@@ -16,6 +14,8 @@
     overflow-y: auto; /* Scroll if content overflows vertically */
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
 }
 
 .bop-content {
@@ -37,6 +37,7 @@ th, td {
     padding: 8px;
     text-align: left;
     white-space: nowrap; /* Prevent text from wrapping */
+    cursor: pointer; /* Indicate that the headers are clickable */
 }
 
 th {
