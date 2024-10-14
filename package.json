@@ -7,6 +7,7 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@fortawesome/fontawesome-free": "^6.6.0",
 		"preact": "^10.22.1",
 		"preact-iso": "^2.7.0"
 	},

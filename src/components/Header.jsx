@@ -1,4 +1,5 @@
 import { useLocation } from 'preact-iso';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export function Header() {
 	const { url } = useLocation();
@@ -9,9 +10,13 @@ export function Header() {
 				<a href="/" class={url == '/' && 'active'}>
 					Home
 				</a>
-				<a href="/404" class={url == '/404' && 'active'}>
-					404
+				<a href="/resume" class={url == '/resume' && 'active'}>
+					Resume
 				</a>
+				<a href="/bikingOnePiece" class={url == '/bikingOnePiece' && 'active'}>
+					<i class="fas fa-biking"></i>
+				</a>
+
 			</nav>
 		</header>
 	);

@@ -1,0 +1,43 @@
+.resume {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  text-align: left; /* Align everything to the left */
+}
+
+.resume-header {
+  margin-bottom: 20px;
+}
+
+.resume-header h1 {
+  margin: 0;
+}
+
+.resume-header p {
+  margin: 5px 0 0 0; /* Reduce the margin between h1 and p */
+}
+
+.resume-section {
+  margin-top: 20px;
+}
+
+.resume-section h2 {
+  border-bottom: 2px solid #000;
+  padding-bottom: 5px;
+}
+
+.resume-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.resume-section li {
+  margin-bottom: 20px;
+}
+
+.resume-section h3 {
+  margin: 0;
+}
+
+.resume-section p {
+  margin: 5px 0;
+}
