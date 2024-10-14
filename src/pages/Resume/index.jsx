@@ -7,7 +7,6 @@ const Resume = () => {
 
             <div className="resume-header">
                 <h1>Samuel Yuen</h1>
-
                 <p>Software Engineer/Cybersecurity</p>
             </div>
 

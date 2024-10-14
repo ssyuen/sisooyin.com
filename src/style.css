@@ -17,11 +17,11 @@ body {
 	margin: 0;
 }
 
-#app {
+/* #app {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
-}
+} */
 
 header {
 	display: flex;
@@ -47,14 +47,14 @@ header a:hover {
 	background-color: #0008;
 }
 
-main {
+/* main {
 	flex: auto;
 	display: flex;
 	align-items: center;
 	max-width: 1280px;
 	margin: 0 auto;
 	text-align: center;
-}
+} */
 
 @media (max-width: 639px) {
 	main {
