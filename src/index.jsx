@@ -20,7 +20,7 @@ export function App() {
 				<Router>
 					<Route path="/" component={Home} />
 					<Route path="/resume" component={Resume} />
-					{isBeta && (
+					{!isBeta && (
 						<>
 							<Route path="/bikingOnePiece" component={BOP} />
 							<Route path="/booklog" component={Booklog} />
