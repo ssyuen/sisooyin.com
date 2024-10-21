@@ -4,8 +4,9 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"build:beta": "cross-env VITE_BETA=true vite build",
-		"build:prod": "cross-env VITE_BETA=false vite build",
+		"build:local": "cross-env VITE_BETA=true VITE_CURRENT_ENV=LOCAL vite build",
+		"build:beta": "cross-env VITE_BETA=true VITE_CURRENT_ENV=WEB vite build",
+		"build:prod": "cross-env VITE_BETA=false VITE_CURRENT_ENV=WEB vite build",
 		"preview": "vite preview"
 	},
 	"dependencies": {

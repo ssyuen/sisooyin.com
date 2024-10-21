@@ -8,9 +8,12 @@ const Booklog = () => {
 
     const [books, setBooks] = useState([]);
     const [selectedBook, setSelectedBook] = useState(null);
+    
+    const currentEnv = import.meta.env.VITE_CURRENT_ENV;
+    const apiUrl = currentEnv === 'LOCAL' ? 'http://127.0.0.1:5000/api/booklog/book/all' : 'https://api.sisooyin.com/api/booklog/book/all';
 
     useEffect(() => {
-        fetch('http://127.0.0.1:5000/api/booklog/book/all', {
+        fetch(apiUrl, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
