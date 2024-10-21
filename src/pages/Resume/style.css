@@ -1,7 +1,9 @@
+
 .resume {
   font-family: Arial, sans-serif;
   margin: 20px;
   text-align: left; /* Align everything to the left */
+  overflow: auto; /* Scroll if content overflows */
 }
 
 .resume-header {

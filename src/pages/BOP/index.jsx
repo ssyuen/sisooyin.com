@@ -54,53 +54,43 @@ const BOP = () => {
         }, {});
     };
 
-    const renderTable = () => {
+    const renderCards = () => {
         if (!data) return null;
 
         const sorted = sortedData();
 
-        const rows = Object.keys(sorted).map(date => (
-            <tr key={date}>
-                <td>{date}</td>
-                <td>{sorted[date].total_distance}</td>
-                <td>{sorted[date].total_work}</td>
-            </tr>
+        return Object.keys(sorted).map(date => (
+            <div className="card" key={date}>
+                <div className="card-header">
+                    <h3>Week: {date}</h3>
+                </div>
+                <div className="card-body">
+                    <p>Total Distance: {sorted[date].total_distance} km</p>
+                    <p>Total Work: {Math.round(sorted[date].total_work / 1000)} joules</p>
+                </div>
+            </div>
         ));
-
-        const getSortIcon = (key) => {
-            if (sortConfig.key !== key) return null;
-            return sortConfig.direction === 'ascending' ? 'fas fa-arrow-up' : 'fas fa-arrow-down';
-        };
-
-        return (
-            <table>
-                <thead>
-                    <tr>
-                        <th onClick={() => handleSort('date')}>
-                            Date <i className={getSortIcon('date')}></i>
-                        </th>
-                        <th onClick={() => handleSort('total_distance')}>
-                            Total Distance (km)<i className={getSortIcon('total_distance')}></i>
-                        </th>
-                        <th onClick={() => handleSort('total_work')}>
-                            Total Work (joules)<i className={getSortIcon('total_work')}></i>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {rows}
-                </tbody>
-            </table>
-        );
     };
 
     return (
         <div className="bop-container">
-            <div className="bop-table">
-                {data ? renderTable() : <div className="spinner"><i className="fas fa-spinner fa-spin"></i></div>}
+            <div className="info-section">
+                <h2>Workout Summary</h2>
+                <p>Tracking of my workout/bike rides</p>
             </div>
-            <div className="bop-content">
-                {/* Blank space for now */}
+            <div className="sort-buttons">
+                <button onClick={() => handleSort('date')}>
+                    Date <i className={sortConfig.key === 'date' ? (sortConfig.direction === 'ascending' ? 'fas fa-arrow-up' : 'fas fa-arrow-down') : ''}></i>
+                </button>
+                <button onClick={() => handleSort('total_distance')}>
+                    Total Distance (km) <i className={sortConfig.key === 'total_distance' ? (sortConfig.direction === 'ascending' ? 'fas fa-arrow-up' : 'fas fa-arrow-down') : ''}></i>
+                </button>
+                <button onClick={() => handleSort('total_work')}>
+                    Total Work (joules) <i className={sortConfig.key === 'total_work' ? (sortConfig.direction === 'ascending' ? 'fas fa-arrow-up' : 'fas fa-arrow-down') : ''}></i>
+                </button>
+            </div>
+            <div className="bop-cards">
+                {data ? renderCards() : <div className="spinner"><i className="fas fa-spinner fa-spin"></i></div>}
             </div>
         </div>
     );

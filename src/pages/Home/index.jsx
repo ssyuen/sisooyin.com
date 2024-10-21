@@ -5,7 +5,8 @@ import { useState } from 'preact/hooks';
 export function Home() {
 	const [subtitle, setSubtitle] = useState('software engineer');
 	const subtitles = ['software engineer', 'web developer', 'tech enthusiast', 'problem solver'];
-
+	document.documentElement.style.overflow = 'hidden';
+	document.body.style.overflow = 'hidden';
 	const handleMouseEnter = () => {
 		let index = 0;
 		// select a random index from subtitles

@@ -2,6 +2,8 @@ import { h } from 'preact';
 import './style.css';
 
 const Resume = () => {
+    document.documentElement.style.overflow = 'auto';
+    document.body.style.overflow = 'auto';
     return (
         <div className="resume">
 
