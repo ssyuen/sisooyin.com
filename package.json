@@ -4,6 +4,8 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
+		"build:beta": "cross-env VITE_BETA=true vite build",
+		"build:prod": "cross-env VITE_BETA=false vite build",
 		"preview": "vite preview"
 	},
 	"dependencies": {
@@ -13,6 +15,7 @@
 	},
 	"devDependencies": {
 		"@preact/preset-vite": "^2.9.0",
+		"cross-env": "^7.0.3",
 		"vite": "^5.3.3"
 	}
 }
