@@ -9,12 +9,15 @@ const Console = () => {
     const [lookupResults, setLookupResults] = useState([]);
     const [selectedLookupIndex, setSelectedLookupIndex] = useState(null);
 
+    const currentEnv = import.meta.env.VITE_CURRENT_ENV;
+    const apiUrl = currentEnv === 'LOCAL' ? 'http://127.0.0.1:500/api' : 'https://api.sisooyin.com/api';
+
     useEffect(() => {
         fetchBooks();
     }, []);
 
     const fetchBooks = () => {
-        fetch('http://127.0.0.1:5000/api/booklog/book/all')
+        fetch(apiUrl + '/booklog/book/all')
             .then(response => response.json())
             .then(data => setBooks(data))
             .catch(error => console.error('Error fetching books:', error));
@@ -35,7 +38,7 @@ const Console = () => {
     };
 
     const addBook = (book) => {
-        fetch('http://127.0.0.1:5000/api/booklog/book/add', {
+        fetch(apiUrl + '/api/booklog/book/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -52,7 +55,7 @@ const Console = () => {
 
     const updateBook = (id, book) => {
         book.id = id;
-        fetch(`http://127.0.0.1:5000/api/booklog/book/update`, {
+        fetch(apiUrl + `/api/booklog/book/update`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,7 +72,7 @@ const Console = () => {
     };
 
     const deleteBook = (id) => {
-        fetch(`http://127.0.0.1:5000/api/booklog/book/delete/${id}`, {
+        fetch(apiUrl + `/api/booklog/book/delete/${id}`, {
             method: 'DELETE',
         })
             .then(() => fetchBooks())
@@ -137,7 +140,7 @@ const Console = () => {
                     name="description"
                     placeholder="Description"
                     value={form.description}
-                    
+
                     onChange={handleInputChange}
                 />
                 <div className="star-rating">
