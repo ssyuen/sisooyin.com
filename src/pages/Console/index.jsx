@@ -3,6 +3,8 @@ import { useState, useEffect } from 'preact/hooks';
 import './style.css';
 
 const Console = () => {
+    document.documentElement.style.overflow = 'auto';
+    document.body.style.overflow = 'auto';
     const [books, setBooks] = useState([]);
     const [form, setForm] = useState({ title: '', author: '', pages: '', rating: '', comments: '', description: '' });
     const [editingBookId, setEditingBookId] = useState(null);

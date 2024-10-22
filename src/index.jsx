@@ -12,7 +12,7 @@ import Console from './pages/Console/index.jsx';
 
 
 export function App() {
-	const isBeta = import.meta.env.VITE_BETA === 'true';
+
 	return (
 		<LocationProvider>
 			<Header />
@@ -22,14 +22,8 @@ export function App() {
 					<Route path="/resume" component={Resume} />
 					<Route path="/bikingOnePiece" component={BOP} />
 					<Route path="/booklog" component={Booklog} />
-					{isBeta ? (
-						<>
-							<Route path="/console" component={Console} />
-						</>
-					) : <>
-
-					</>}
-
+					<Route path="/console" component={Console} />
+					
 					<Route default component={NotFound} />
 				</Router>
 			</main>

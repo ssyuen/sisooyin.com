@@ -1,9 +1,23 @@
 import { useLocation } from 'preact-iso';
+import { useState } from 'preact/hooks';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 export function Header() {
 	const { url } = useLocation();
-	const isBeta = import.meta.env.VITE_BETA === 'true';
+	const [authenticated, setAuthenticated] = useState(false);
+
+	const sanitizeInput = (input) => {
+		return input.replace(/[^a-zA-Z0-9]/g, '');
+	}
+	const handleLogin = () => {
+		const password = prompt('Enter the password to access the console:');
+		const sanitizedPassword = sanitizeInput(password);
+		if (sanitizeInput === import.meta.env.VITE_CONSOLE_PASSWORD) {
+			setAuthenticated(true);
+		} else {
+			alert('Incorrect password');
+		}
+	};
 
 	return (
 		<header>
@@ -20,17 +34,15 @@ export function Header() {
 				<a href="/booklog" class={url == '/booklog' && 'active'}>
 					<i class="fas fa-book"></i>
 				</a>
-				{isBeta ? (
-					<>
-
-						<a href="/console" class={url == '/console' && 'active'}>
-							<i class="fas fa-terminal"></i>
-						</a>
-					</>
-				) : <>
-
-				</>}
-
+				{authenticated ? (
+					<a href="/console" class={url == '/console' && 'active'}>
+						<i class="fas fa-terminal"></i>
+					</a>
+				) : (
+					<a href="#" onClick={handleLogin}>
+						<i class="fas fa-terminal"></i>
+					</a>
+				)}
 			</nav>
 		</header>
 	);
