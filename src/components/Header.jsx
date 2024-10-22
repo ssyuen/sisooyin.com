@@ -12,7 +12,7 @@ export function Header() {
 	const handleLogin = () => {
 		const password = prompt('Enter the password to access the console:');
 		const sanitizedPassword = sanitizeInput(password);
-		if (sanitizeInput === import.meta.env.VITE_CONSOLE_PASSWORD) {
+		if (sanitizedPassword === import.meta.env.VITE_CONSOLE_PASSWORD) {
 			setAuthenticated(true);
 		} else {
 			alert('Incorrect password');
