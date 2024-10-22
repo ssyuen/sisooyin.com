@@ -38,7 +38,7 @@ const Console = () => {
     };
 
     const addBook = (book) => {
-        fetch(apiUrl + '/api/booklog/book/add', {
+        fetch(apiUrl + '/booklog/book/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ const Console = () => {
 
     const updateBook = (id, book) => {
         book.id = id;
-        fetch(apiUrl + `/api/booklog/book/update`, {
+        fetch(apiUrl + `/booklog/book/update`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const Console = () => {
     };
 
     const deleteBook = (id) => {
-        fetch(apiUrl + `/api/booklog/book/delete/${id}`, {
+        fetch(apiUrl + `/booklog/book/delete/${id}`, {
             method: 'DELETE',
         })
             .then(() => fetchBooks())

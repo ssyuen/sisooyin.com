@@ -20,14 +20,16 @@ export function App() {
 				<Router>
 					<Route path="/" component={Home} />
 					<Route path="/resume" component={Resume} />
-					{!isBeta && (
+					<Route path="/bikingOnePiece" component={BOP} />
+					<Route path="/booklog" component={Booklog} />
+					{isBeta ? (
 						<>
-							<Route path="/bikingOnePiece" component={BOP} />
-							<Route path="/booklog" component={Booklog} />
 							<Route path="/console" component={Console} />
 						</>
-					)}
-					
+					) : <>
+
+					</>}
+
 					<Route default component={NotFound} />
 				</Router>
 			</main>
