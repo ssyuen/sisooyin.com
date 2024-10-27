@@ -9,25 +9,33 @@ import './style.css';
 import BOP from './pages/BOP/index.jsx';
 import Booklog from './pages/Booklog/index.jsx';
 import Console from './pages/Console/index.jsx';
+import { AuthProvider, useAuth } from './contexts/AuthContext.jsx';
 
+
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+	const {authenticated} = useAuth();
+	return authenticated ? <Component {...rest} /> : <Home />;
+};
 
 export function App() {
 
 	return (
-		<LocationProvider>
-			<Header />
-			<main>
-				<Router>
-					<Route path="/" component={Home} />
-					<Route path="/resume" component={Resume} />
-					<Route path="/bikingOnePiece" component={BOP} />
-					<Route path="/booklog" component={Booklog} />
-					<Route path="/console" component={Console} />
-					
-					<Route default component={NotFound} />
-				</Router>
-			</main>
-		</LocationProvider>
+		<AuthProvider>
+			<LocationProvider>
+				<Header />
+				<main>
+					<Router>
+						<Route path="/" component={Home} />
+						<Route path="/resume" component={Resume} />
+						<Route path="/bikingOnePiece" component={BOP} />
+						<Route path="/booklog" component={Booklog} />
+						<ProtectedRoute path="/console" component={Console} />
+
+						<Route default component={NotFound} />
+					</Router>
+				</main>
+			</LocationProvider>
+		</AuthProvider>
 	);
 }
 

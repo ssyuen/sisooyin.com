@@ -40,12 +40,16 @@ const Booklog = () => {
 
     const renderStars = (rating) => {
         const fullStars = Math.floor(rating);
+        const emptyStars = 10 - fullStars;
         const halfStar = rating % 1 !== 0;
 
         return (
             <div className="star-rating">
                 {[...Array(fullStars)].map((_, index) => (
                     <span key={index} className="star filled">&#9733;</span>
+                ))}
+                {[...Array(emptyStars)].map((_, index) => (
+                    <span key={index} className="star">&#9733;</span>
                 ))}
                 {halfStar && <span className="star filled">&#9734;</span>}
             </div>

@@ -1,9 +1,12 @@
 import './style.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import { useState } from 'preact/hooks';
+import { useState, useRef } from 'preact/hooks';
+import ReCAPTCHA from 'react-google-recaptcha';
+
 
 export function Home() {
 	const [subtitle, setSubtitle] = useState('software engineer');
+
 	const subtitles = ['software engineer', 'web developer', 'tech enthusiast', 'problem solver'];
 	document.documentElement.style.overflow = 'hidden';
 	document.body.style.overflow = 'hidden';
@@ -30,7 +33,11 @@ export function Home() {
 				</a>
 			</section>
 			<footer class="footer">
-				<p>&trade; Sisooyin 2024</p>
+				<p>
+					See my work on <a href="/resume">my resume</a>!
+
+				</p>
+				<p>&trade; sisooyin 2024</p>
 			</footer>
 		</div>
 	);

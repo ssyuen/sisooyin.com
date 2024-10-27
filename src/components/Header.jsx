@@ -1,22 +1,15 @@
 import { useLocation } from 'preact-iso';
-import { useState } from 'preact/hooks';
+import { useAuth } from '../contexts/AuthContext';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 export function Header() {
 	const { url } = useLocation();
-	const [authenticated, setAuthenticated] = useState(false);
+	const { authenticated, login } = useAuth();
 
-	const sanitizeInput = (input) => {
-		return input.replace(/[^a-zA-Z0-9]/g, '');
-	}
 	const handleLogin = () => {
 		const password = prompt('Enter the password to access the console:');
-		const sanitizedPassword = sanitizeInput(password);
-		if (sanitizedPassword === import.meta.env.VITE_CONSOLE_PASSWORD) {
-			setAuthenticated(true);
-		} else {
-			alert('Incorrect password');
-		}
+		login(password);
 	};
 
 	return (

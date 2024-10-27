@@ -6,8 +6,16 @@
   overflow: auto; /* Scroll if content overflows */
 }
 
+.contact-section {
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  
+}
+
 .resume-header {
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .resume-header h1 {

@@ -1,11 +1,39 @@
 import { h } from 'preact';
+import { useState, useRef } from 'preact/hooks';
+import ReCAPTCHA from 'react-google-recaptcha';
 import './style.css';
 
 const Resume = () => {
     document.documentElement.style.overflow = 'auto';
     document.body.style.overflow = 'auto';
+
+    const [showCaptcha, setShowCaptcha] = useState(true);
+    const recaptchaRef = useRef(null);
+
+    const handleCaptchaChange = (value) => {
+        if (value) {
+            setShowCaptcha(false);
+        }
+    };
+
     return (
         <div className="resume">
+            <div className={"contact-section"}>
+                Interested in getting in contact with me? Email me at {!showCaptcha ? <>
+                    <a href={`mailto:${import.meta.env.VITE_EMAIL}`} >{import.meta.env.VITE_EMAIL}</a>
+                </> :
+                    <>
+                        <ReCAPTCHA
+                            ref={recaptchaRef}
+                            sitekey={import.meta.env.VITE_SITE_KEY_CAPTCHA}
+                            theme="dark"
+                            onChange={handleCaptchaChange}
+                        />
+                    </>
+
+
+                }
+            </div>
 
             <div className="resume-header">
                 <h1>Samuel Yuen</h1>
