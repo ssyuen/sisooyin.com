@@ -1,3 +1,20 @@
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --axis-color: #000000;
+    --grid-color: #e0e0e0;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --text-color: #ffffff;
+        --axis-color: #ffffff;
+        --grid-color: #444444;
+    }
+}
+
+
 html, body {
     height: 100%;
     margin: 0;

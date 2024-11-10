@@ -63,7 +63,7 @@ const BOP = () => {
         const sorted = sortedData();
 
         return Object.keys(sorted).map(date => (
-            <div className="card" key={date}>
+            <div className="card" key={date} style={{ color: 'black' }}>
                 <div className="card-header">
                     <h3>Week: {date}</h3>
                 </div>
@@ -81,14 +81,14 @@ const BOP = () => {
                 <h2>Workout Summary</h2>
                 <p>Tracking of my workout/bike rides</p>
             </div>
-            <div className="sort-buttons">
-                <button onClick={() => handleSort('date')}>
+            <div className="sort-buttons" style={{ color: 'black' }}>
+                <button onClick={() => handleSort('date')} style={{ color: 'black' }}>
                     Date <i className={sortConfig.key === 'date' ? (sortConfig.direction === 'ascending' ? 'fas fa-arrow-up' : 'fas fa-arrow-down') : ''}></i>
                 </button>
-                <button onClick={() => handleSort('total_distance')}>
+                <button onClick={() => handleSort('total_distance')} style={{ color: 'black' }}>
                     Total Distance (km) <i className={sortConfig.key === 'total_distance' ? (sortConfig.direction === 'ascending' ? 'fas fa-arrow-up' : 'fas fa-arrow-down') : ''}></i>
                 </button>
-                <button onClick={() => handleSort('total_work')}>
+                <button onClick={() => handleSort('total_work')} style={{ color: 'black' }}>
                     Total Work (joules) <i className={sortConfig.key === 'total_work' ? (sortConfig.direction === 'ascending' ? 'fas fa-arrow-up' : 'fas fa-arrow-down') : ''}></i>
                 </button>
             </div>

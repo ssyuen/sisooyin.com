@@ -1,0 +1,159 @@
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --axis-color: #000000;
+    --grid-color: #e0e0e0;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --text-color: #ffffff;
+        --axis-color: #ffffff;
+        --grid-color: #444444;
+    }
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-console {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.admin-console h1 {
+    text-align: center;
+}
+
+.admin-console form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.admin-console form input,
+.admin-console form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.admin-console form .form-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-console form button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn {
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+}
+
+.btn-info:hover {
+    background-color: #117a8b;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.console-section {
+    width: 40%;
+}
+
+.tags-container {
+    margin-top: 10px;
+}
+
+.book-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.book-item h3 {
+    margin: 0 0 10px 0;
+}
+
+.book-item p {
+    margin: 0 0 10px 0;
+}
+
+.book-item button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+.preview-section {
+    width: 60%;
+    text-align: left;
+}

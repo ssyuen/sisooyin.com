@@ -1,0 +1,43 @@
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --axis-color: #000000;
+    --grid-color: #e0e0e0;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --text-color: #ffffff;
+        --axis-color: #ffffff;
+        --grid-color: #444444;
+    }
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-list {
+    text-align: center; /* Align text to the left */
+    margin: 0 auto; /* Center the list container */
+}
+
+.blog-list ul {
+    list-style-position: inside; /* Ensure bullets are inside the container */
+    padding: 0; /* Remove default padding */
+}
+
+.blog-list li {
+    margin: 10px 0; /* Add some space between list items */
+}
+
+.blog-list ul {
+    list-style-type: none; /* Remove bullet points */
+    list-style-position: inside; /* Ensure bullets are inside the container */
+    padding: 0; /* Remove default padding */
+}

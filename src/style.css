@@ -13,6 +13,14 @@
 	-webkit-text-size-adjust: 100%;
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212;
+        --text-color: #ffffff;
+        --axis-color: #ffffff;
+        --grid-color: #444444;
+    }
+}
 body {
 	margin: 0;
 }
