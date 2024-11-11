@@ -5,7 +5,7 @@ import './style.css';
 
 export const BlogConsole = () => {
     const [blogs, setBlogs] = useState([]);
-    const [form, setForm] = useState({ title: '', content: '', tags: '', date: '' });
+    const [form, setForm] = useState({ title: '', content: '', tags: '', date: '', isPasswordLocked: false });
     const [editingBlogId, setEditingBlogId] = useState(null);
     const [tagColors, setTagColors] = useState({});
 
@@ -48,7 +48,7 @@ export const BlogConsole = () => {
             .then(response => response.json())
             .then(() => {
                 fetchBlogs();
-                setForm({ title: '', content: '', tags: '', date: '' });
+                setForm({ title: '', content: '', tags: '', date: '', isPasswordLocked: false });
             })
             .catch(error => console.error('Error adding blog:', error));
     };
@@ -65,7 +65,7 @@ export const BlogConsole = () => {
             .then(response => response.json())
             .then(() => {
                 fetchBlogs();
-                setForm({ title: '', content: '', tags: '', date: '' });
+                setForm({ title: '', content: '', tags: '', date: '', isPasswordLocked: false });
                 setEditingBlogId(null);
             })
             .catch(error => console.error('Error updating blog:', error));
@@ -80,7 +80,7 @@ export const BlogConsole = () => {
     };
 
     const handleEdit = (blog) => {
-        setForm({ title: blog.title, content: blog.content, tags: blog.tags, date: blog.date });
+        setForm({ title: blog.title, content: blog.content, tags: blog.tags, date: blog.date, isPasswordLocked: blog.isPasswordLocked });
         setEditingBlogId(blog.id);
     };
 
@@ -159,11 +159,19 @@ export const BlogConsole = () => {
                 </div>
                 <input
                     type="date"
-                    name="date"
+                    name="date" 
                     value={form.date}
                     onChange={handleInputChange}
                     required
                 />
+                <label htmlFor="isPasswordLocked">Password Locked</label>
+                <input
+                    type="checkbox"
+                    name="isPasswordLocked"
+                    checked={form.isPasswordLocked || false}
+                    onChange={(e) => setForm({ ...form, isPasswordLocked: e.target.checked })}
+                />
+                
                 <button type="submit">{editingBlogId ? 'Update' : 'Add'} Blog</button>
             </form>
             <div

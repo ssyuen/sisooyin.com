@@ -27,6 +27,7 @@ const BlogPost = () => {
     };
 
     const [tagColors, setTagColors] = useState({});
+    const [postFetched, setPostFetched] = useState(false);
     const { path } = useLocation();
     const blogId = path.split('/')[2];
 
@@ -34,6 +35,7 @@ const BlogPost = () => {
     const apiUrl = currentEnv === 'LOCAL' ? `http://127.0.0.1:5000/api/blog/post/${blogId}` : `https://api.sisooyin.com/api/blog/post/${blogId}`;
 
     useEffect(() => {
+        if (postFetched) return;
         fetch(apiUrl, {
             method: 'GET',
             headers: {
@@ -44,36 +46,20 @@ const BlogPost = () => {
             .then(response => response.json())
             .then(data => {
                 setPost(data);
-                console.log(data)
+                console.log(data);
                 const colors = {};
                 data.tags.split(", ").forEach(tag => {
                     colors[tag] = getRandomBrightColor();
                 });
                 setTagColors(colors);
+                setPostFetched(true);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
                 setPost(errorPost);
             });
-    }, [apiUrl]);
+    }, [apiUrl, post, tagColors]);
 
-
-
-    useEffect(() => {
-        fetch(apiUrl, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            }
-        })
-            .then(response => response.json())
-            .then(data => setPost(data))
-            .catch(error => {
-                console.error('Error fetching data:', error);
-                setPost(errorPost);
-            });
-    });
 
     return (
         <div style={{ textAlign: 'left', margin: '10px' }}>
