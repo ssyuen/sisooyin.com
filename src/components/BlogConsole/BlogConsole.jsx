@@ -1,5 +1,6 @@
 import { h } from 'preact';
 import { useState, useEffect } from 'preact/hooks';
+import autosize from 'autosize';
 import './style.css';
 
 export const BlogConsole = () => {
@@ -16,6 +17,9 @@ export const BlogConsole = () => {
     };
 
     const handleInputChange = (e) => {
+        if (e.target.name === 'content') {
+            autosize(e.target);
+        }
         const { name, value } = e.target;
         setForm({ ...form, [name]: value });
     };
@@ -28,6 +32,7 @@ export const BlogConsole = () => {
         if (editingBlogId) {
             updateBlog(editingBlogId, updatedForm);
         } else {
+            console.log(updatedForm);
             addBlog(updatedForm);
         }
     };
@@ -124,6 +129,7 @@ export const BlogConsole = () => {
                 <textarea
                     type="text"
                     name="content"
+                    style={{ maxHeight: '200px' }}
                     placeholder="Content"
                     value={form.content}
                     onChange={handleInputChange}
@@ -154,7 +160,7 @@ export const BlogConsole = () => {
                 <input
                     type="date"
                     name="date"
-                    value={form.date || new Date().toISOString().split('T')[0]}
+                    value={form.date}
                     onChange={handleInputChange}
                     required
                 />
@@ -173,7 +179,7 @@ export const BlogConsole = () => {
                 <h2>Blog Post Preview</h2>
                 <div className="blog-post">
                     <h3>{form.title}</h3>
-                    <p>{form.content}</p>
+                    <div style={{ whiteSpace: 'pre-wrap' }}>{form.content}</div>
                     <p>{form.date}</p>
                     <div className="tags-container">
                         {form.tags.split(',').map((tag, index) => (
@@ -191,7 +197,6 @@ export const BlogConsole = () => {
                 </div>
             </div>
             <div className="blog-list">
-
                 {blogs.map((blog) => {
                     const [isExpanded, setIsExpanded] = useState(false);
 

@@ -4,6 +4,7 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
+		"optimize": "vite optimize",
 		"build:local": "cross-env VITE_BETA=true VITE_CURRENT_ENV=LOCAL vite build",
 		"build:beta": "cross-env VITE_BETA=true VITE_CURRENT_ENV=WEB vite build",
 		"build:prod": "cross-env VITE_BETA=false VITE_CURRENT_ENV=WEB vite build",
@@ -11,9 +12,9 @@
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-free": "^6.6.0",
+		"autosize": "^6.0.1",
 		"preact": "^10.22.1",
 		"preact-iso": "^2.7.0",
-		"quill": "^2.0.2",
 		"react-google-recaptcha": "^3.1.0",
 		"react-vis": "^1.12.1"
 	},

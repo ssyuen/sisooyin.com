@@ -6,19 +6,59 @@ const BlogPost = () => {
     const [post, setPost] = useState({
         id: 1,
         title: 'First Post',
-        content: 'This is the first post on the blog.'
+        tags: 'first, post',
+        content: 'This is the first post on the blog.',
+        date: '2021-01-01'
     });
     const errorPost = {
         id: 0,
         title: 'Error',
-        content: 'Error fetching post. Sorry!'
+        tags: 'first, post',
+        content: 'Error fetching post. Sorry!',
+        date: '2021-01-01'
     };
+    const getRandomBrightColor = () => {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
+
+    const [tagColors, setTagColors] = useState({});
     const { path } = useLocation();
     const blogId = path.split('/')[2];
-    console.log(blogId)
 
     const currentEnv = import.meta.env.VITE_CURRENT_ENV;
     const apiUrl = currentEnv === 'LOCAL' ? `http://127.0.0.1:5000/api/blog/post/${blogId}` : `https://api.sisooyin.com/api/blog/post/${blogId}`;
+
+    useEffect(() => {
+        fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                setPost(data);
+                console.log(data)
+                const colors = {};
+                data.tags.split(", ").forEach(tag => {
+                    colors[tag] = getRandomBrightColor();
+                });
+                setTagColors(colors);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+                setPost(errorPost);
+            });
+    }, [apiUrl]);
+
+
+
     useEffect(() => {
         fetch(apiUrl, {
             method: 'GET',
@@ -37,8 +77,19 @@ const BlogPost = () => {
 
     return (
         <div style={{ textAlign: 'left', margin: '10px' }}>
-            <h1>{post.id} - {post.title}</h1>
-            <p>{post.content}</p>
+            <h1>{post.date} - {post.title}</h1>
+            <div className="tags-container">
+                {post.tags.split(", ").map((tag, index) => (
+                    <span
+                        key={index}
+                        style={{ backgroundColor: tagColors[tag] }}
+                        className="tag"
+                    >
+                        {tag}
+                    </span>
+                ))}
+            </div>
+            <div style={{ whiteSpace: 'pre-wrap' }}>{post.content}</div>
         </div>
     );
 };
