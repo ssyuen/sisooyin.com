@@ -9,8 +9,10 @@ export const BlogConsole = () => {
     const [editingBlogId, setEditingBlogId] = useState(null);
     const [tagColors, setTagColors] = useState({});
 
+    const currentEnv = import.meta.env.VITE_CURRENT_ENV;
+    const apiUrl = currentEnv === 'LOCAL' ? 'http://127.0.0.1:5000/api/blog/posts' : 'https://api.sisooyin.com/api/blog/posts';
     const fetchBlogs = () => {
-        fetch('http://127.0.0.1:5000/api/blog/posts')
+        fetch(apiUrl)
             .then(response => response.json())
             .then(data => setBlogs(data))
             .catch(error => console.error('Error fetching blogs:', error));
