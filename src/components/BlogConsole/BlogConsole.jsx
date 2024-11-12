@@ -10,9 +10,9 @@ export const BlogConsole = () => {
     const [tagColors, setTagColors] = useState({});
 
     const currentEnv = import.meta.env.VITE_CURRENT_ENV;
-    const apiUrl = currentEnv === 'LOCAL' ? 'http://127.0.0.1:5000/api/blog/posts' : 'https://api.sisooyin.com/api/blog/posts';
+    const apiUrl = currentEnv === 'LOCAL' ? 'http://127.0.0.1:5000' : 'https://api.sisooyin.com';
     const fetchBlogs = () => {
-        fetch(apiUrl)
+        fetch(apiUrl + '/api/blog/posts')
             .then(response => response.json())
             .then(data => setBlogs(data))
             .catch(error => console.error('Error fetching blogs:', error));
@@ -40,7 +40,7 @@ export const BlogConsole = () => {
     };
 
     const addBlog = (blog) => {
-        fetch('http://127.0.0.1:5000/api/blog/post/add', {
+        fetch(apiUrl + '/api/blog/post/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -57,7 +57,7 @@ export const BlogConsole = () => {
 
     const updateBlog = (id, blog) => {
         blog.id = id;
-        fetch(`http://127.0.0.1:5000/api/blog/posts/update`, {
+        fetch(apiUrl + '/api/blog/posts/update', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ export const BlogConsole = () => {
     };
 
     const deleteBlog = (id) => {
-        fetch(`http://127.0.0.1:5000/api/blog/post/delete/${id}`, {
+        fetch(apiUrl + `/api/blog/post/delete/${id}`, {
             method: 'DELETE',
         })
             .then(() => fetchBlogs())
